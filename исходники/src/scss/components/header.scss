@@ -1,0 +1,137 @@
+// Header
+.header {
+  position: relative;
+  z-index: 2;
+  top: 0;
+  left: 0;
+  width: 100%;
+  color: $light-color;
+  padding: 20px 0;
+  background-color: lighten($green-color, 20%);
+  &__inner {
+    @include flex-all-sb;
+  }
+  &__nav {
+    display: flex;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 19px;
+    &-list {
+      display: flex;
+      margin-right: 68px;
+      &.open {
+        visibility: visible;
+        opacity: 1;
+        height: 500px;
+      }
+      @media (max-width: 991px) {
+        position: fixed;
+        flex-direction: column;
+        align-items: center;       
+        width: 100%;
+        height: 0;
+        visibility: hidden;
+        opacity: 0;        
+        left: 0;
+        top: 0;
+      }
+    }
+    &-item {
+      position: relative;
+      padding: 5px 0;
+      &::after {
+        transition: width 0.3s linear;
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 0;
+        height: 1px;
+        background-color: #FFC231;        
+      }
+      a {
+        // transition: text-shadow 0.3s linear;
+        &:hover {
+          // text-shadow: 1px 1px 1px #fff;
+        }
+      }
+      &:not(:last-child) {
+        margin-right: 50px;
+      }
+      &:hover {
+        &::after {
+          width: 100%;
+        }
+      }
+    }  
+    &-lang {
+      display: flex;
+      position: relative;
+      align-items: center;
+      justify-content: space-between;
+      cursor: pointer;
+      padding: 5px 0;
+      &::after {
+        margin-left: 5px;
+        content: '';
+        display: block;
+        background: url('@img/header/arrow-down.svg') no-repeat center center / cover;
+        width: 11px;
+        height: 5px;
+      }
+      &::before {
+        transition: width 0.3s linear;
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 0;
+        height: 1px;
+        background-color: #FFC231;      
+      }
+      &:hover {
+        &::before {
+          width: 100%;
+        }
+      }
+    }
+    &-langs {
+      display: flex;
+    }
+  }
+  &--fixed {
+    position: fixed;
+  }
+}
+.header__tel-link {
+  position: relative;
+  padding: 5px 0;
+  display: flex;
+  align-items: center;
+  font-weight: $semibold;
+  font-size: 15px;
+  line-height: 18px;
+  &::before {
+    content: '';
+    display: block;
+    margin-right: 5px;
+    background: url('@img/header/phone.svg') no-repeat center center / cover;
+    width: 19px;
+    height: 19px;
+  }
+  &::after {
+    transition: width 0.3s linear;
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background-color: #FFC231;        
+  }
+  &:hover {
+    &::after {
+      width: 100%;
+    }    
+  }
+}

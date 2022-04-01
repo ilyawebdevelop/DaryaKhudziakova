@@ -1,0 +1,16 @@
+// Btn
+.btn {
+  color: $light-color;
+  width: 160px;
+  background: $green-color;
+  box-shadow: 0px 12px 44px rgba(91, 136, 105, 0.25);
+  border-radius: 27.5px;
+  font-weight: $extrabold;
+  font-size: 19px;
+  padding: 16px 0;  
+  cursor: pointer;
+  transition: background 0.3s linear;
+  &:hover {
+    background: lighten($green-color, 10%);
+  }
+}

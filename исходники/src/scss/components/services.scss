@@ -1,0 +1,49 @@
+// Services
+.services {
+  position: relative;
+  padding-bottom: 20px;
+  &__wrapper {
+    display: flex;
+  }
+  &__title {
+    max-width: 330px;
+    position: relative;
+    z-index: 1;
+    margin-right: 39px;
+  }
+  &__list {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 50px 63px;
+  }
+  &__item {
+    grid-column: 6 span;
+    &-icon {
+      width: 70px;
+      height: 70px;
+      background-color: $green-color-light;
+      border-radius: 50%;
+      margin-bottom: 21px;
+      @include flex-all-center;
+    }
+    &-title {
+      font-weight: $semibold;
+      font-size: 24px;
+      line-height: 32px;
+      color: $title-color;
+      margin-bottom: 15px;
+    }
+    &-text {
+      font-weight: $regular;     
+      line-height: 26px;
+      max-width: 325px;
+    }
+  }
+}
+.services__bg-img {
+  position: absolute;
+  left: 0;
+  top: 10px;
+  width: 370px;
+  transform: scale(-1, 1);
+}
