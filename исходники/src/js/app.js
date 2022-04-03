@@ -1,17 +1,8 @@
 import * as flsFunctions from "./modules/functions.js";
 // import './modules/parallax.min.js';
 import './components.js';
-// Подключение параллакса блоков при скролле
-// import Rellax from 'rellax';
-// const rellax = new Rellax('.rellax');
 
 flsFunctions.isWebp();
-
-
-import Swiper, { Navigation, Pagination, Autoplay, Mousewheel} from 'swiper';
-Swiper.use([Navigation, Pagination, Autoplay, Mousewheel]);
-const swiper = new Swiper();
-
 
 // Burger
 const btnMenu = document.querySelector('#toggle');
@@ -46,6 +37,11 @@ document.addEventListener('click', function(e) {
 		}
 });
 
+// Import swiper
+import Swiper, { Navigation, Pagination, Autoplay, Mousewheel} from 'swiper';
+Swiper.use([Navigation, Pagination, Autoplay, Mousewheel]);
+const swiper = new Swiper();
+
 // Инициализация слайдера REVIEWS
 const productsSlider = document.querySelector('.products__slider');
 let mySwiperProducts = new Swiper(productsSlider, { 
@@ -69,20 +65,16 @@ let mySwiperProducts = new Swiper(productsSlider, {
   },
 	breakpoints: {  
 		0: {
-			slidesPerView: 1,
-		
+			slidesPerView: 1,		
 		},  
 		576: {
-			slidesPerView: 1,
-		
+			slidesPerView: 1,		
 		},  
 		768: {
-			slidesPerView: 2,
-		
+			slidesPerView: 2,		
 		},     
 		992: {
-			slidesPerView: 2,
-		
+			slidesPerView: 2,		
 		},
 		1200: {
 			slidesPerView: 4,
@@ -104,6 +96,7 @@ window.addEventListener('scroll', () => {
 	if (scrollDistance > lastScrollTop) {
 		header.classList.remove('header--fixed');
 		first.style.marginTop = null;
+	
 	} else {
 		header.classList.add('header--fixed');
 		first.style.marginTop = `${headerHeight}px`;
@@ -113,21 +106,31 @@ window.addEventListener('scroll', () => {
 		header.classList.remove('header--fixed');
 		first.style.marginTop = null;
 	}
-
 	lastScrollTop = scrollDistance;
 });
 
+// Loading-circle
+document.addEventListener('DOMContentLoaded', () => {
+	const circle = document.querySelector('.progress');
+	const progressAnimation = () => {
+		let scrollTop = window.scrollY;
+		let windowHeight = window.innerHeight;
+		let siteHeight = document.documentElement.scrollHeight;
+		let percentageProgress = Math.floor(scrollTop / (siteHeight - windowHeight) * 100);
+		let radius = circle.getAttribute('r');
+		let circleLength = 2 * Math.PI * radius;
+		circle.setAttribute('stroke-dasharray', circleLength);
+		circle.setAttribute('stroke-dashoffset', circleLength - circleLength * percentageProgress / 100);	};
 
-//  Paralax
-const scene = document.getElementById('scene');
-const scene1 = document.getElementById('scene1');
-
-
-var parallaxInstance = new Parallax(scene, {
-	hoverOnly: true,
-	relativeInput: true,
+	progressAnimation();
+	window.addEventListener('scroll', () => {
+		progressAnimation();
+	});
 });
-var parallaxInstance = new Parallax(scene1, {
-	hoverOnly: true,
-	relativeInput: true,
-});
+
+
+
+
+
+
+

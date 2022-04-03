@@ -18,6 +18,8 @@
 @import 'specifications';
 
 // Подключения компонентов страницы
+@import "./components/scrollbtn";
+@import "./components/circle-anim";
 @import "./components/burger";
 @import "./components/btn";
 @import "./components/header";
