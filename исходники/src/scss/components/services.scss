@@ -4,17 +4,32 @@
   padding-bottom: 20px;
   &__wrapper {
     display: flex;
+    @media (max-width: 991px) {
+      flex-direction: column;
+    }
   }
   &__title {
     max-width: 330px;
     position: relative;
     z-index: 1;
     margin-right: 39px;
+    @media (max-width: 991px) {
+      margin-bottom: 60px;
+    }
+    @media (max-width: 575px) {
+      margin-bottom: 30px;
+    }
   }
   &__list {
     display: grid;
     grid-template-columns: repeat(12, 1fr);
     gap: 50px 63px;
+    @media (max-width: 1199px) {
+      gap: 50px 30px;
+    }
+    @media (max-width: 500px) {
+      gap: 30px 20px;
+    }
   }
   &__item {
     grid-column: 6 span;
@@ -32,11 +47,20 @@
       line-height: 32px;
       color: $title-color;
       margin-bottom: 15px;
+      @media (max-width: 991px) {
+        font-size: 22px;
+      }
     }
     &-text {
       font-weight: $regular;     
       line-height: 26px;
       max-width: 325px;
+      @media (max-width: 767px) {
+        line-height: 22px;
+      }
+    }
+    @media (max-width: 500px) {
+      grid-column: 12 span;
     }
   }
 }
@@ -46,4 +70,7 @@
   top: 10px;
   width: 370px;
   transform: scale(-1, 1);
+  @media (max-width: 991px) {
+    display: none;
+  }
 }

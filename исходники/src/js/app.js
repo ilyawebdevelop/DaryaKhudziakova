@@ -14,10 +14,17 @@ const bodyEl = document.querySelector('body');
 const toggleMenu = function() {
 	menu.classList.toggle('open');	
 }
+const toggleBurger = function() {
+	btnMenu.classList.toggle('active');
+}
+const bodyOverflow = function() {
+	bodyEl.classList.toggle('hidden');
+}
 btnMenu.addEventListener('click', function(e) {
 	e.stopPropagation();
 	toggleMenu();		
-	bodyEl.style.overflow="hidden";
+	toggleBurger();
+	bodyOverflow();
 });	
 // btn_close.addEventListener('click', function() {
 // 	menu.classList.toggle('open');
@@ -33,8 +40,9 @@ document.addEventListener('click', function(e) {
 	// const sidebar_is_active = sidebarEl.classList.contains('active');
 	if (!its_menu && menu_is_active) {
 			toggleMenu();
-			bodyEl.style.overflow="unset";
-		}
+			toggleBurger();
+			bodyOverflow();
+		}	
 });
 
 // Import swiper
@@ -45,8 +53,7 @@ const swiper = new Swiper();
 // Инициализация слайдера REVIEWS
 const productsSlider = document.querySelector('.products__slider');
 let mySwiperProducts = new Swiper(productsSlider, { 
-	slidesPerView: 4, 	
-	spaceBetween: 10,
+	
   autoplay: false,
   speed: 555,
 	mousewheel: true,
@@ -59,10 +66,6 @@ let mySwiperProducts = new Swiper(productsSlider, {
     type: 'bullets',
     clickable: true
   },
-	scrollbar: {
-    el: '.swiper-scrollbar',
-    draggable: true,
-  },
 	breakpoints: {  
 		0: {
 			slidesPerView: 1,		
@@ -71,14 +74,16 @@ let mySwiperProducts = new Swiper(productsSlider, {
 			slidesPerView: 1,		
 		},  
 		768: {
-			slidesPerView: 2,		
+			slidesPerView: 2,	
+			spaceBetween: 20, 	
 		},     
 		992: {
-			slidesPerView: 2,		
+			slidesPerView: 3,		
+			spaceBetween: 21, 	
 		},
 		1200: {
 			slidesPerView: 4,
-			spaceBetween: 10, 	
+			spaceBetween: 8, 	
 		}
 	}
 });

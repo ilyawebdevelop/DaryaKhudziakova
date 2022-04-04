@@ -9,6 +9,12 @@
   }
   &__left {
     grid-column: 5 span;
+    @media (max-width: 991px) {
+      grid-column: 6 span;
+    }
+    @media (max-width: 425px) {
+      grid-column: 12 span;
+    }
   }
   &__right {
     grid-column: 6 span; 
@@ -16,24 +22,45 @@
     grid-column-end: 13;
     padding-left: 20px;
     padding-top: 5px;
+    @media (max-width: 425px) {
+      grid-column: 12 span;
+      grid-column-start: 1;
+      padding-left: 10px;
+    }
   }
   &__title {
     color: $green-color-light;
     margin-bottom: 20px;
+    @media (max-width: 991px) {
+      font-size: 14px;
+      margin-bottom: 10px;
+    }
   }
   &__menu {
     font-weight: $medium;   
     line-height: 23px;
+    @media (max-width: 767px) {
+      padding-left: 10px;
+    }
+    @media (max-width: 425px) {
+      margin-bottom: 33px;
+    }
   }
   &__nav {
     &-list {
       display: flex;
+      @media (max-width: 767px) {
+        flex-direction: column;
+      }
     }
     &-item {
       position: relative;
       padding: 5px 0;
       &:not(:last-child) {
         margin-right: 50px;
+        @media (max-width: 1199px) {
+          margin-right: 26px;
+        }
       }
       &::after {
         transition: width 0.3s linear;
@@ -50,10 +77,19 @@
           width: 100%;
         }
       }
-    }   
+      @media (max-width: 991px) {
+        font-size: 14px;
+      }
+      @media (max-width: 425px) {
+        padding: 0;
+      }
+    }      
   }
   .logo {
     margin-bottom: 24px;
+    @media (max-width: 575px) {
+      width: 100%;
+    }
   }
   &__contacts-item {     
     font-weight: $medium;    
@@ -63,10 +99,16 @@
     &:hover {
       color: $light-color;
     }
+    @media (max-width: 991px) {
+      font-size: 14px;
+    }
+  }
+  @media (max-width: 575px) {
+    padding: 50px 0px 60px;
   }
 }
 .socials {
-  margin-top: 20px;
+  margin-top: 26px;
   &__list {
     display: flex;
     align-items: center;
@@ -83,4 +125,11 @@
       opacity: 1;
     }
   }
+  @media (max-width: 991px) {
+    margin-top: 29px;
+  }
+  @media (max-width: 425px) {
+    margin-top: 15px;
+  }
+  
 }

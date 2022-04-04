@@ -2,18 +2,43 @@
 .products {
   padding-bottom: 140px;
   &__title {
-    margin-bottom: 80px;
+    margin-bottom: 50px;
     &-wrapper {
-      position: relative;     
+      position: relative;  
+    }
+    @media (max-width: 575px) {
+      margin-bottom: 10px;
     }
   }
   &__wrapper {
-    position: relative;   
+    width: 1170px;
+    max-width: 100%;
+    margin: 0 auto;
+    position: relative;
+    @media (max-width: 1199px) {
+      padding: 0;
+      width: 940px;
+      padding-left: 30px;
+      padding-right: 30px;
+    }
   }
   &__slider {
-    padding-bottom: 85px;
+    padding: 37px 0 85px;
+    @media (max-width: 767px) {
+      padding-right: 50px;
+      padding-left: 50px;
+    }
+    @media (max-width: 575px) {
+      padding-right: 25px;
+      padding-left: 25px;
+    }
   }
   &__slide {
+    box-sizing: border-box;
+    border: 1px solid rgba(126, 166, 140, 0.1);
+    box-shadow: 0px 0px 20px rgb(126 166 140 / 15%);
+    border-radius: 30px;
+    padding: 0px 1px 30px;
     &-img {
       filter: drop-shadow(0px 0px 16px rgba(91, 136, 105, 0.6));
     }
@@ -21,7 +46,7 @@
       position: relative;
       display: flex;
       flex-direction: column;
-      align-items: center;
+      align-items: center;     
       a {
         position: absolute;
         width: 100%;
@@ -33,9 +58,7 @@
     &-round {
       @include flex-all-center;
       width: 255px;
-      height: 245px;
-      border-radius: 50%;
-      background-color: $green-color-light;
+      height: 245px;    
       margin-bottom: 25px;
     }
     &-subtitle {
@@ -54,6 +77,23 @@
       line-height: 30px;    
       color: #7EA68C;
     }
+    &-inner {
+      padding: 9px;
+      max-width: 260px;
+      @media (max-width: 1199px) {
+        max-width: 261px;
+      }
+      @media (max-width: 991px) {
+        max-width: initial;
+        padding: 0;
+      }
+    }
+  }
+  @media (max-width: 1250px) {
+    overflow: hidden;
+  }
+  @media (max-width: 575px) {
+    padding-bottom: 70px;
   }
 }
 .products__pagination span {
@@ -65,11 +105,21 @@
   width: 460px;
   position: absolute;
   right: -176px;
-  top: -143px;
+  top: -201px;
+  @media (max-width: 1500px) {
+    right: 0;
+  }
+  @media (max-width: 1300px) {
+    width: 300px;
+    top: -76px;
+  }
+  @media (max-width: 575px) {
+    display: none;
+  }
 }
 .products__arrow {
   position: absolute;
-  top: 22%;
+  top: 43%;
   cursor: pointer;
   transition: opacity 0.3s linear;
   &:hover {
@@ -81,7 +131,25 @@
 }
 .product-button-next {
   right: -50px;
+  @media (max-width: 1400px) {
+    right: -20px;
+  }
+  @media (max-width: 1199px) {
+    right: 5px;
+  }
+  @media (max-width: 767px) {
+    right: 10px;
+  }
 }
 .product-button-prev {
   left: -50px;
+  @media (max-width: 1400px) {
+    left: -20px;
+  }
+  @media (max-width: 1199px) {
+    left: 5px;
+  }
+  @media (max-width: 767px) {
+    left: 10px;
+  }
 }

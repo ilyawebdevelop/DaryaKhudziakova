@@ -7,6 +7,9 @@
   }
   &__title {
     margin-bottom: 60px;
+    @media (max-width: 575px) {
+      margin-bottom: 30px;
+    }
   }
   &__list {
     position: relative;
@@ -14,6 +17,12 @@
     display: grid;
     grid-template-columns: repeat(12, 1fr);
     gap: 40px 30px;
+    @media (max-width: 1199px) {
+      gap: 40px 20px;
+    }
+    @media (max-width: 575px) {
+      gap: 25px 20px;
+    }
   }
   &__item {
     grid-column: 3 span;
@@ -35,6 +44,15 @@
       font-size: 14px;
       line-height: 140%;
       color: $dark-color;
+      @media (max-width: 575px) {
+        font-size: 13px;
+      }
+    }
+    @media (max-width: 767px) {
+      grid-column: 4 span;
+    }
+    @media (max-width: 575px) {
+      grid-column: 6 span;
     }
   }
   &__img {
@@ -44,6 +62,10 @@
     background-color: $green-color-light;
     @include flex-all-center;
     margin-bottom: 5px;
+  }
+  @media (max-width: 575px) {
+    padding-top: 50px;
+    padding-bottom: 60px;
   }
 }
 .benefits__bg-img {

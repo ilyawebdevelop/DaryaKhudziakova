@@ -19,21 +19,28 @@
     &-list {
       display: flex;
       margin-right: 68px;
+      transition: opacity .35s, visibility .35s, height .35s;
       &.open {
+        transition: opacity .35s, visibility .35s, height .35s;
         visibility: visible;
         opacity: 1;
-        height: 500px;
+        height: 100vh;
+        z-index: 2;
+        opacity: 1;       
       }
-      @media (max-width: 991px) {
+      @media (max-width: 991px) {        
         position: fixed;
         flex-direction: column;
-        align-items: center;       
+        align-items: center;   
+        justify-content: center;    
         width: 100%;
         height: 0;
         visibility: hidden;
         opacity: 0;        
         left: 0;
         top: 0;
+        background-color: rgba(56,56,56, .9);
+        opacity: 0;
       }
     }
     &-item {
@@ -57,6 +64,10 @@
       }
       &:not(:last-child) {
         margin-right: 50px;
+        @media (max-width: 991px) {
+          margin-right: 0;
+          margin-bottom: 10px;
+        }
       }
       &:hover {
         &::after {
@@ -94,6 +105,9 @@
           width: 100%;
         }
       }
+      @media (max-width: 575px) {
+        font-size: 13px;
+      }
     }
     &-langs {
       display: flex;
@@ -101,6 +115,9 @@
   }
   &--fixed {
     position: fixed;
+  }
+  @media (max-width: 575px) {
+    padding: 15px 0;
   }
 }
 .header__tel-link {
@@ -118,6 +135,10 @@
     background: url('@img/header/phone.svg') no-repeat center center / cover;
     width: 19px;
     height: 19px;
+    @media (max-width: 575px) {
+      width: 13px;
+      height: 13px;
+    }
   }
   &::after {
     transition: width 0.3s linear;
@@ -133,5 +154,19 @@
     &::after {
       width: 100%;
     }    
+  }
+  @media (max-width: 575px) {
+    font-size: 13px;
+  }
+  @media (max-width: 400px) {
+    font-size: 11px;
+  }
+}
+.logo {
+  @media (max-width: 575px) {
+    width: 130px;
+  }
+  @media (max-width: 400px) {
+    width: 110px;
   }
 }
