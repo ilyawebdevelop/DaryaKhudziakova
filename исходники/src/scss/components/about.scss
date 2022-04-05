@@ -27,6 +27,10 @@
     }
     .about__text-wrapper {
       padding-right: 22px;
+      @media (max-width: 575px) {
+        padding-right: 0px;
+        text-align: justify;
+      }
     }
     @media (max-width: 991px) {
       display: flex;
@@ -62,6 +66,9 @@
      @media (max-width: 767px) {
        margin-top: 50px;
      }
+      @media (max-width: 575px) {
+       margin: 0 auto 40px;
+     }      
     }
     @media (max-width: 991px) {
       display: flex;
