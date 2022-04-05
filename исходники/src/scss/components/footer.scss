@@ -56,6 +56,11 @@
     &-item {
       position: relative;
       padding: 5px 0;
+      a {
+        @media (max-width: 767px) {
+          width: max-content;
+        }
+      }
       &:not(:last-child) {
         margin-right: 50px;
         @media (max-width: 1199px) {
@@ -79,6 +84,9 @@
       }
       @media (max-width: 991px) {
         font-size: 14px;
+      }
+      @media (max-width: 767px) {
+        width: max-content;
       }
       @media (max-width: 425px) {
         padding: 0;
