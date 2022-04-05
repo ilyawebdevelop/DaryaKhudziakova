@@ -7,9 +7,8 @@ flsFunctions.isWebp();
 // Burger
 const btnMenu = document.querySelector('#toggle');
 const menu = document.querySelector('.header__nav-list');
-// const menu = document.querySelector('#overlay');
-const btn_close = document.querySelector('.header__menu-burger-close');
 const bodyEl = document.querySelector('body');
+let navItemAll = document.querySelectorAll('.header__nav-item');
 
 const toggleMenu = function() {
 	menu.classList.toggle('open');	
@@ -26,23 +25,24 @@ btnMenu.addEventListener('click', function(e) {
 	toggleBurger();
 	bodyOverflow();
 });	
-// btn_close.addEventListener('click', function() {
-// 	menu.classList.toggle('open');
-// 	bodyEl.style.overflow="unset";
-// });
+navItemAll.forEach((el) => {
+    el.addEventListener("click", function () {
+        toggleMenu();
+	toggleBurger();
+	bodyOverflow();
+    });
+})
 
 // Menu show
 document.addEventListener('click', function(e) {
-	const target = e.target;
-	const its_menu = target == menu || menu.contains(target);	
-	// const its_sidebar = target == sidebarEl || sidebarEl.contains(target);
-	const menu_is_active = menu.classList.contains('open');
-	// const sidebar_is_active = sidebarEl.classList.contains('active');
-	if (!its_menu && menu_is_active) {
-			toggleMenu();
-			toggleBurger();
-			bodyOverflow();
-		}	
+    const target = e.target;
+    const its_menu = target == menu || menu.contains(target);		
+    const menu_is_active = menu.classList.contains('open');	
+    if (!its_menu && menu_is_active) {
+	toggleMenu();
+	toggleBurger();
+	bodyOverflow();
+    }	
 });
 
 // Import swiper
