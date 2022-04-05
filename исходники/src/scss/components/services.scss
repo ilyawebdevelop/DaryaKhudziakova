@@ -43,6 +43,9 @@
       border-radius: 50%;
       margin-bottom: 21px;
       @include flex-all-center;
+      @media (max-width: 575px) {
+        margin: 0 auto 21px;
+      }
     }
     &-title {
       font-weight: $semibold;
@@ -53,6 +56,9 @@
       @media (max-width: 991px) {
         font-size: 22px;
       }
+      @media (max-width: 575px) {
+        text-align: center;
+      }
     }
     &-text {
       font-weight: $regular;     
@@ -60,6 +66,10 @@
       max-width: 325px;
       @media (max-width: 767px) {
         line-height: 22px;
+      }
+      @media (max-width: 575px) {
+        text-align: center;
+        margin: 0 auto;
       }
     }
     @media (max-width: 500px) {
